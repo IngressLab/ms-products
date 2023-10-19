@@ -1,0 +1,72 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create products table
+      author: Selminaz Kerimli
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+                  - column:
+                      name: id
+                      type: bigint
+                      autoIncrement: true
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                  - column:
+                      name: user_id
+                      type: bigint
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: category_id
+                      type: bigint
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: subcategory_id
+                      type: bigint
+                      constraints:
+                        nullable: false
+                  - column:
+                        name: image
+                        type: varchar(255)
+                  - column:
+                      name: name
+                      type: varchar(255)
+                  - column:
+                      name: text
+                      type: text
+                  - column:
+                      name: is_top
+                      type: boolean
+                      defaultValue: false
+                  - column:
+                      name: stock_count
+                      type: bigint
+                  - column:
+                      name: price
+                      type: money
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: avg_stars
+                      type: numeric(3,2)
+                  - column:
+                        name: status
+                        type: varchar(16)
+                  - column:
+                        name: created_at
+                        type: timestamp
+                        defaultValue: now()
+                        constraints:
+                          nullable: false
+                  - column:
+                        name: updated_at
+                        type: timestamp
+                        defaultValue: now()
+                        constraints:
+                          nullable: false
+
+
+            remarks: Table to store products
