@@ -1,47 +1,42 @@
-package com.example.ms_products.model.request;
+package com.example.ms_products.model.response;
 
 import com.example.ms_products.model.enums.ProductStatus;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import static jakarta.persistence.EnumType.STRING;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest {
+@Builder
+public class ProductResponse {
 
-    @NotNull
-    @NotEmpty
     private Long userId;
 
-    @NotNull
-    @NotEmpty
     private Long categoryId;
 
-    @NotNull
-    @NotEmpty
     private Long subcategoryId;
 
-    @NotNull
-    @NotEmpty
+    private String image;
+
     private String name;
 
     private String text;
 
-    @NotNull
-    @NotEmpty
     private Long stockCount;
 
-    @NotNull
-    @NotEmpty
     private Double price;
 
+    private ProductStatus status;
 
+    private Double avgStars;
+
+    private LocalDateTime createdAt;
 
 }
