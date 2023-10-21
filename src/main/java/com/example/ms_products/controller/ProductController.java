@@ -18,12 +18,6 @@ public class ProductController {
 
     private final ProductService service;
 
-    @PostMapping("/upload")
-    @ResponseStatus(CREATED)
-    public String saveProduct(@Validated @RequestParam MultipartFile file){
-
-        return service.saveImage(file);
-    }
     @PostMapping
     @ResponseStatus(CREATED)
     public void saveProduct(@RequestPart("file") MultipartFile file,

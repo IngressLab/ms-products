@@ -27,25 +27,6 @@ public class ProductService {
 
     private final FileStorageUtil fileStorageUtil;
 
-    public String saveImage(MultipartFile file){
-
-       String fileStorageLocation = "${file.upload-dir}";
-       Path fileUploadPath=Paths.get("uploads/")
-               .toAbsolutePath().normalize();
-        try {
-            Files.createDirectories(fileUploadPath);
-        } catch (Exception ex) {
-            throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
-        }
-        try {
-            Path targetLocation = fileUploadPath.resolve(file.getOriginalFilename());
-            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
-
-        } catch (IOException ex) {
-            throw new FileStorageException("Could not store file.Please try again!", ex);
-        }
-        return file.getOriginalFilename();
-    }
 
     public void saveProduct(MultipartFile file, ProductRequest request){
 
