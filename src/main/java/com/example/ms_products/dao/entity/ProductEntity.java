@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 @Table(name = "products")
 @Builder
-public class Product {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
@@ -32,19 +33,19 @@ public class Product {
 
     private Long subcategoryId;
 
-    private String image;
+    private String imageContent;
 
     private String name;
 
-    private String text;
+    private String description;
 
-    private  Boolean isTop;
+    private  Boolean inTopList;
 
     private Long stockCount;
 
-    private Double price;
+    private BigDecimal price;
 
-    private Double avgStars;
+    private Double rating;
 
     @Enumerated(STRING)
     private ProductStatus status;
@@ -59,8 +60,8 @@ public class Product {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Objects.equals(getId(), product.getId());
+        ProductEntity productEntity = (ProductEntity) o;
+        return Objects.equals(getId(), productEntity.getId());
     }
 
     @Override

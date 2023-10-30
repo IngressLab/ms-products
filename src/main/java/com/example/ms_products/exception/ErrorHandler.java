@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import static com.example.ms_products.exception.ExceptionMessages.UNEXPECTED_ERROR;
 import static org.springframework.http.HttpStatus.*;
 
 @Slf4j
@@ -14,8 +15,8 @@ public class ErrorHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ErrorResponse handle(Exception exception){
-        log.error("Exception",exception);
-        return  new ErrorResponse(exception.getMessage());
+        log.error("UnexpectedError",exception);
+        return  new ErrorResponse(UNEXPECTED_ERROR.getMessage());
     }
 
     @ExceptionHandler(NotFoundException.class)

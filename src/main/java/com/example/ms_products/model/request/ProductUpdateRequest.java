@@ -11,11 +11,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductRequest {
-
-    @NotNull
-    @NotEmpty
-    private Long userId;
+public class ProductUpdateRequest {
 
     @NotNull
     @NotEmpty

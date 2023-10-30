@@ -1,14 +1,12 @@
 package com.example.ms_products.model.response;
 
 import com.example.ms_products.model.enums.ProductStatus;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,6 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 public class ProductResponse {
 
+    private Long id;
     private Long userId;
 
     private Long categoryId;
@@ -27,15 +26,17 @@ public class ProductResponse {
 
     private String name;
 
-    private String text;
+    private String description;
+
+    private Boolean inTopList;
 
     private Long stockCount;
 
-    private Double price;
+    private BigDecimal price;
 
     private ProductStatus status;
 
-    private Double avgStars;
+    private Double rating;
 
     private LocalDateTime createdAt;
 
